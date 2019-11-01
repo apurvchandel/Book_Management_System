@@ -5,15 +5,9 @@ import pickle
 import os
 
 #----------------------------------------BOOK---------------------------------------------------------
-import time
-import random
-import re
-import pickle
-import os
 
 class Book:
     def __init__(self,a):
-        os.system("clear")
         random.seed(time.time())
         self.status = a
         self.id = "BID00000"
@@ -60,9 +54,9 @@ def Create_Book():
 	B = Book(1) 
 	with open('book.txt','ab') as file:
 		pickle.dump(B,file)
-	print("\n\nCreating Customer Record. Please Wait...........")
+	print("\n\nCreating Book Record. Please Wait...........")
 	time.sleep(3)
-	print("\nCustomer Record Created...")
+	print("\nBook Record Created...")
 
 def Display_Book(cust_id):
 	B = Customer(0)
@@ -138,6 +132,7 @@ def Delete_Book(cust_id):
 	print("Book Record Deleted")
 
 #----------------------------------------/BOOK--------------------------------------------------------
+#----------------------------------------Customer-----------------------------------------------------
 #This is the regular expression format for validating email-id
 regex = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
 
@@ -151,7 +146,6 @@ def isValid(s,n):
 
 class Customer:
 	def __init__(self,a):
-		os.system("clear")
 		random.seed(time.time())
 		self.status = a
 		self.id = "UID00000"
@@ -288,7 +282,22 @@ def Delete_Record(cust_id):
 	print("\nDeleting Customer Record........Please Wait")
 	time.sleep(3)
 	print("Customer Record Deleted")
+#------------------------------------------------------/Customer----------------------------------------
+def Book_Purchase():
+	print("Welcome To Book Purchase Portal")
+	print("Please Enter Mode of Search")
+	n=int(input("1: By Name\t2:By Author"))
 
+def Book_Donate():
+		print("Book Donate Portal")
+		print("Thanks To Donate To Our Franchise")
+		print("Please Enter Book Details")
+		dh1 = 'y'
+		while dh1=='y' or dh1=='Y':
+			Create_Book()
+			dh1 = 'N'
+			dh1 = input("\nDo you want to Donate more book...(y/N)?")
+#---------------------------------------------------MainMenu--------------------------------------------------
 def Admin_Menu():
 	ch0 = 'y'
 	while ch0=='y' or ch0=='Y':
@@ -391,7 +400,6 @@ def Admin_Menu():
 
 
 def Main_Menu():
-	os.system("clear")
 	print("MAIN MENU")
 	print("\n1. BOOK PURCHASE")
 	print("\n2. BOOK DONATE")
@@ -399,6 +407,10 @@ def Main_Menu():
 	print("\n4. EXIT")
 	n = int(input("\nPlease Select Your Option (1-4)  "))
 
+	if(n==1):
+		Book_Purchase()
+	if(n==2):
+		Book_Donate()
 	if(n==3):
 		Admin_Menu()
 
