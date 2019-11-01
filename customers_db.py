@@ -26,7 +26,7 @@ class Book:
         else:
             return "\n\nEND OF FILE"
     def showdata(self):
-        print("The details of desired customer are as follows: ")
+        print("The details of desired Books are as follows: ")
         print(self.id)
         print(self.name)
         print(self.author)
@@ -287,7 +287,12 @@ def Book_Purchase():
 	print("Welcome To Book Purchase Portal")
 	print("Please Enter Mode of Search")
 	n=int(input("1: By Name\t2:By Author"))
+	if(n==1):
+		name=str(input("Enter Book Name:"))
 
+	if(n==2):
+		auth=str(input("Enter Author Name:"))
+		
 def Book_Donate():
 		print("Book Donate Portal")
 		print("Thanks To Donate To Our Franchise")
